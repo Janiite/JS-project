@@ -1,23 +1,21 @@
 import { useState } from "react";
 import Axios from "axios";
+import { Link } from 'react-router-dom';
+
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [password1, setPassword1] = useState("");
-  const [checkUserName, setCheckUserName] = useState("");
+  //const [checkUserName, setCheckUserName] = useState("");
 
   const register = () => {
-    Axios.get("http://localhost:3001/check", {
-      username: username,
-    }).then((response) => {
-      alert(response);
-    });
+
     if (password === password1 && username !== "") {
       Axios.post("http://localhost:3001/register", {
         username: username,
         password: password,
-        password1: password1,
+       
       }).then((response) => {
         console.log(response);
       });
@@ -27,6 +25,7 @@ const Register = () => {
   };
 
   return (
+    
     <div className="register">
      
       <div className="wrapper">
@@ -63,7 +62,8 @@ const Register = () => {
             />
           </div>
           <button className="btn btn-primary" onClick={register}>Sign up</button>
-          <button className="btn btn-primary mx-2">Log in</button>
+
+        
         </form>
       </div>
     </div>
