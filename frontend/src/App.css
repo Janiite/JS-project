@@ -2,7 +2,7 @@
 .wrapper {
   
     height: 50vh;
-    width: 30vw;
+    width:20vw;
 }
 
 body {
@@ -15,5 +15,5 @@ body {
 }
 
 .title {
-    margin-bottom: 50px;
+    margin-bottom: 100px;
 }

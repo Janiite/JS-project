@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Axios from "axios";
-import { Link } from 'react-router-dom';
+
 
 
 const Register = () => {
@@ -26,11 +26,11 @@ const Register = () => {
 
   return (
     
-    <div className="register">
+   
      
-      <div className="wrapper">
+      <div className="">
         <form>
-          <h2>Please register!</h2>
+          <h2 className="text-center mb-4">Please register!</h2>
           <div className="mb-3">
             <label className="form-label">Username</label>
             <input
@@ -61,12 +61,15 @@ const Register = () => {
               onChange={(e) => setPassword1(e.target.value)}
             />
           </div>
-          <button className="btn btn-primary" onClick={register}>Sign up</button>
+          <button className="btn btn-primary w-100 mb-3" onClick={register}>Sign up</button>
+          <button className="btn btn-primary w-100 mb-3" >Login</button>
+         
+          
 
         
         </form>
       </div>
-    </div>
+    
   );
 };
 
