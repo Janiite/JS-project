@@ -1,16 +1,21 @@
 import "./App.css";
 import Register from "./Register";
-//import Game from "./Game";
-//import Login from "./Login";
+import Game from "./Game";
+import Login from "./Login";
+import ErrorPage from "./ErrorPage";
 
-//import { Routes, Route, Outlet } from "react-router-dom";
+import{BrowserRouter as Router, Routes, Route,} from 'react-router-dom'
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="title w-100 text-center">Welcome to Hangman Game!</h1>
-      <Register/>
-    </div>
+    <Router>
+      <Routes>
+        <Route path='/' element={<Login/>}/>
+        <Route path='register' element={<Register/>}/>
+        <Route path='game' element={<Game/>}/>
+        <Route path='*' element={<ErrorPage/>}/>
+      </Routes>
+    </Router>
   );
 }
 

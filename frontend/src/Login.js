@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [loginStatus, setLoginStatus] = useState("");
@@ -15,8 +17,10 @@ const Login = () => {
         setLoginStatus(response.data.message);
       } else {
         setLoginStatus(response.data[0].username);
+         navigate("/game");
       }
     });
+    
   };
 
   return (
@@ -44,10 +48,17 @@ const Login = () => {
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
-          <button className="btn btn-primary mx-2" onClick={login}>
+          <button className="btn btn-primary w-100 mb-3" onClick={login}>
             Log in
           </button>
-          <button className="btn btn-primary">Sign up</button>
+          <button
+            onClick={() => {
+              navigate("/register");
+            }}
+            className="btn btn-primary w-100 mb-3"
+          >
+            Sign up
+          </button>
 
           <h1>Login status:{loginStatus}</h1>
         </form>
