@@ -70,6 +70,14 @@ const Register = () => {
           Login
         </button>
       </form>
+      <button
+            onClick={() => {
+              navigate("/Game");
+            }}
+            className="btn btn-secondary w-100 mb-3"
+          >
+            Play without registration
+          </button>
     </div>
   );
 };

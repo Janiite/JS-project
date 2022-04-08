@@ -17,14 +17,14 @@ const Login = () => {
         setLoginStatus(response.data.message);
       } else {
         setLoginStatus(response.data[0].username);
-         navigate("/game");
+        navigate("/game");
+        console.log(loginStatus);
       }
     });
-    
   };
 
   return (
-    <div className="register">
+    <div className="">
       <div className="wrapper">
         <form>
           <h2>Please log in!</h2>
@@ -60,9 +60,19 @@ const Login = () => {
             Sign up
           </button>
 
-          <h1>Login status:{loginStatus}</h1>
+          {
+            //<h1>Login status:{loginStatus}</h1>
+          }
         </form>
       </div>
+      <button
+        onClick={() => {
+          navigate("/Game");
+        }}
+        className="btn btn-secondary w-100 mb-3"
+      >
+        Play without registration
+      </button>
     </div>
   );
 };
