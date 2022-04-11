@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -15,13 +15,14 @@ const Login = () => {
     }).then((response) => {
       if (response.data.message) {
         setLoginStatus(response.data.message);
-      } else {
+      } else { 
         setLoginStatus(response.data[0].username);
-        navigate("/game");
         console.log(loginStatus);
       }
     });
   };
+
+
 
   return (
     <div className="">
@@ -30,6 +31,7 @@ const Login = () => {
           <h2>Please log in!</h2>
           <div className="mb-3">
             <label className="form-label">Username</label>
+            <p>{loginStatus}</p>
             <input
               className="form-control"
               type="text"
