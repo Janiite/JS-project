@@ -9,6 +9,7 @@ import { showNotification as show } from "./Helpers/Helpers";
 import { useNavigate } from "react-router-dom";
 import "./Game.css";
 
+
 const words = ["application", "programming", "interface", "wizard"];
 let selectedWord = words[Math.floor(Math.random() * words.length)];
 // let playable = true; reuse with =>  const [playable, setPlayabel] = useState(true);
@@ -22,6 +23,8 @@ function Game() {
   const [wrongLetters, setWrongLetters] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
   const [points, setPoints] = useState(0);
+
+
 
   // Keydown letter press
   useEffect(() => {
@@ -51,11 +54,9 @@ function Game() {
           if (!wrongLetters.includes(letter)) {
             setWrongLetters((wrongLetters) => [
               ...wrongLetters,
-              letter,
-            
+              letter
             ]); 
-            setPoints(prevPoints => prevPoints + 1);
-            console.log(points);/* this take current letters and create new array*/
+            /* this take current letters and create new array*/
           } else {
             show(setShowNotification);
           }
@@ -81,6 +82,7 @@ function Game() {
 
   return (
     <>
+   
       <Headers />
       <div className="game-container">
         <Figure wrongLetters={wrongLetters} />
@@ -109,6 +111,7 @@ function Game() {
       >
         Login
       </button>
+      
     </>
   );
 }
