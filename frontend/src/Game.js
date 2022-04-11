@@ -21,6 +21,7 @@ function Game() {
   const [correctLetters, setCorrectLetters] = useState([]);
   const [wrongLetters, setWrongLetters] = useState([]);
   const [showNotification, setShowNotification] = useState(false);
+  const [points, setPoints] = useState(0);
 
   // Keydown letter press
   useEffect(() => {
@@ -35,20 +36,26 @@ function Game() {
         if (selectedWord.includes(letter)) {
           // Checking if selected word include letter, if it doesn't include letter t than add letter if not than show notification letter twice
           if (!correctLetters.includes(letter)) {
+            
             setCorrectLetters((currentLetters) => [
               /* this take current letters and create new array*/
               ...currentLetters,
               letter,
             ]);
+           
           } else {
             show(setShowNotification);
+         
           }
         } else {
           if (!wrongLetters.includes(letter)) {
             setWrongLetters((wrongLetters) => [
               ...wrongLetters,
               letter,
-            ]); /* this take current letters and create new array*/
+            
+            ]); 
+            setPoints(prevPoints => prevPoints + 1);
+            console.log(points);/* this take current letters and create new array*/
           } else {
             show(setShowNotification);
           }
